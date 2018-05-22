@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {
 
@@ -20,12 +21,9 @@ class SplashActivity : AppCompatActivity() {
                 R.anim.animacao_splash)
         anim.reset()
 
-        val iv: ImageView = findViewById<ImageView>(R.id.ivSplash)
-        if (iv != null)
-        {
-            iv.clearAnimation()
-            iv.startAnimation(anim)
-        }
+        ivSplash.clearAnimation()
+        ivSplash.startAnimation(anim)
+
         Handler().postDelayed(object:Runnable {
             public override fun run() {
 
@@ -35,7 +33,7 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(intent)
                 this@SplashActivity.finish()
             }
-        }, 3500)
+        }, 2500)
     }
 
 }

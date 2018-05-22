@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_logo_splash">8dp</dimen>
+    <dimen name="dimen_logo_login">150dp</dimen>
+    <dimen name="padding_shapes">0dp</dimen>
+    <dimen name="radius_shape">50dp</dimen>
 </resources>

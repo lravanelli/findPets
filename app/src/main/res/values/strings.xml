@@ -7,4 +7,6 @@
     <string name="sign_in">SIGN IN</string>
     <string name="sign_up">SIGN UP</string>
     <string name="remember_my_password">Remember my password</string>
+    <string name="e_mail" translatable="false">E-mail</string>
+    <string name="label_app" translatable="false">Find Pets</string>
 </resources>
