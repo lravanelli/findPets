@@ -9,4 +9,7 @@
     <string name="remember_my_password">Remember my password</string>
     <string name="e_mail" translatable="false">E-mail</string>
     <string name="label_app" translatable="false">Find Pets</string>
+    <string name="enter_email">Enter your email address</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="conection_avaiable">No internet access</string>
 </resources>

@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
             public override fun run() {
 
                 val intent = Intent(this@SplashActivity,
-                        MenuActivity::class.java)
+                        LoginActivity::class.java)
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
                 startActivity(intent)
                 this@SplashActivity.finish()

@@ -1,9 +1,5 @@
 package br.com.lravanelli.findpets.controller
 
-/**
- * Created by fernando.ravanelli on 18/05/2018.
- */
-
 import android.util.Log
 import android.widget.TextView
 import br.com.lravanelli.findpets.R
@@ -27,7 +23,6 @@ object UserService {
                 .build()
         service = retrofit.create(UserRest::class.java)
     }
-
 
     /*fun getUser(id: Int): User? {
         val call = service.getUser(id)

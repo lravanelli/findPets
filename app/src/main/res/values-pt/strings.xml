@@ -5,4 +5,7 @@
     <string name="sign_in">Logar</string>
     <string name="remember_my_password">Menter conectado</string>
     <string name="sign_up">Cadastrar</string>
+    <string name="enter_email">Informe seu e-mail</string>
+    <string name="enter_password">Informe sua senha</string>
+    <string name="conection_avaiable">Sem acesso a internet</string>
 </resources>

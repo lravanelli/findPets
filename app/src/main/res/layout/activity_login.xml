@@ -36,7 +36,8 @@
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textColorHint="#CCC"
-            android:hint="@string/e_mail"/>
+            android:hint="@string/e_mail"
+            android:id="@+id/etEmail"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,17 +58,18 @@
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textColorHint="#CCC"
-            android:hint="@string/password_hint"/>
+            android:hint="@string/password_hint"
+            android:id="@+id/etPassword"/>
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/cbRemember"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/remember_my_password"
             android:textColor="@color/colorAccent"
             android:textSize="6pt"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -77,7 +79,8 @@
             android:textColor="@color/colorAccent"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"/>
+            android:layout_marginRight="70dp"
+            android:id="@+id/btSignin"/>
 
         <Button
             android:layout_width="match_parent"
@@ -87,7 +90,8 @@
             android:textColor="@color/colorAccent"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"/>
+            android:layout_marginRight="70dp"
+            android:id="@+id/btSignup"/>
 
         <TextView
             android:layout_width="wrap_content"
