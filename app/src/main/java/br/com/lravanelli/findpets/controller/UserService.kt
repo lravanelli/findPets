@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 object UserService {
-    private val BASE_URL = "http://www2.gmdlogistica.com.br:8085/findapi/"
+    private val BASE_URL = "http://www.gmdlogistica.com.br:8085/findapi/"
     public var service: UserRest
 
     init {

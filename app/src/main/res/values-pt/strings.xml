@@ -8,4 +8,7 @@
     <string name="enter_email">Informe seu e-mail</string>
     <string name="enter_password">Informe sua senha</string>
     <string name="conection_avaiable">Sem acesso a internet</string>
+    <string name="incorrect_email">E-mail não cadastrado</string>
+    <string name="incorrect_password">Senha incorreta</string>
+    <string name="login_error">Erro ao logar</string>
 </resources>

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.lravanelli.findpets">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,15 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity" android:theme="@style/FullScreen">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".LoginActivity" android:theme="@style/FullScreen"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/FullScreen" />
     </application>
 
 </manifest>

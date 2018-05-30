@@ -71,9 +71,9 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("user", response.body()?.toString())
                     val userResponse = response.body()?.copy()
                     if (userResponse?.id == -2){
-                        Toast.makeText(applicationContext, "e-mail não cadastrado", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, R.string.incorrect_email, Toast.LENGTH_LONG).show()
                     } else if (userResponse?.id == -1){
-                        Toast.makeText(applicationContext, "senha incorreta", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, R.string.incorrect_password, Toast.LENGTH_LONG).show()
                     } else {
                         val intent = Intent(this@LoginActivity,
                                 MenuActivity::class.java)
@@ -83,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
                 override fun onFailure(call: Call<User>?, t: Throwable?) {
-                    Toast.makeText(applicationContext, "Não foi possivel logar", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, R.string.login_error, Toast.LENGTH_LONG).show()
 
                 }
             })
