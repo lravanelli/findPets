@@ -11,4 +11,6 @@
     <string name="incorrect_email">E-mail não cadastrado</string>
     <string name="incorrect_password">Senha incorreta</string>
     <string name="login_error">Erro ao logar</string>
+    <string name="user_registred">Usuário cadastrador com sucesso</string>
+    <string name="user_exist">Usuário já cadastrado</string>
 </resources>
