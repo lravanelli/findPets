@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 
-data class User(var id: Int, var email: String, var password: String?)
+data class User(val id: Int, val email: String, val password: String?)
 
 
 @Entity(tableName = "UserPers")

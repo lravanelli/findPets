@@ -27,6 +27,10 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/FullScreen" />
+        <activity
+            android:name=".PetActivity"
+            android:label="@string/title_activity_pet"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

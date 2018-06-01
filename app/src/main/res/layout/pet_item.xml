@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_foto_list"
+            android:layout_height="@dimen/dimen_foto_list"
+            android:id="@+id/ivFoto"/>
+
+        <LinearLayout
+            android:layout_toRightOf="@id/ivFoto"
+            android:layout_toLeftOf="@id/ivDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold|italic"
+                android:id="@+id/tvNome"
+                tools:text="Nome"
+                android:paddingTop="@dimen/padding_top_item"/>
+
+            <TextView
+                android:textColor="#AAA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Especie"
+                android:id="@+id/tvEspecie"/>
+
+            <TextView
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Raça"
+                android:id="@+id/tvRaca"/>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/delete"
+            android:layout_width="@dimen/dimen_icon_del"
+            android:layout_height="@dimen/dimen_icon_del"
+            android:id="@+id/ivDelete"
+            android:padding="8dp"/>
+    </RelativeLayout>
+
+
+
+</android.support.v7.widget.CardView>

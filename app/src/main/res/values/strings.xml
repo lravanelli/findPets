@@ -15,10 +15,13 @@
     <string name="incorrect_email">unregistered email</string>
     <string name="incorrect_password">incorrect password</string>
     <string name="login_error">logging error</string>
-    <string name="title_activity_menu" translatable="false">MenuActivity</string>
-    <string name="title_home" translatable="false">Home</string>
+    <string name="title_activity_menu" translatable="false">Find Pets</string>
     <string name="title_dashboard" translatable="false">Dashboard</string>
-    <string name="title_notifications" translatable="false">Notifications</string>
     <string name="user_registred">user successfully registered</string>
     <string name="user_exist">user already registered</string>
+    <string name="title_pets" translatable="false">Pets</string>
+    <string name="title_about">about</string>
+    <string name="title_activity_detalhe">DetalheActivity</string>
+    <string name="title_activity_pet">PetActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

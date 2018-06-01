@@ -1,0 +1,13 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.lravanelli.findpets.fragments.SobreFragment">
+
+
+    <ImageView
+        android:layout_width="@dimen/dimen_foto_list"
+        android:layout_height="@dimen/dimen_foto_list"
+        android:src="@mipmap/logo"/>
+
+</FrameLayout>
