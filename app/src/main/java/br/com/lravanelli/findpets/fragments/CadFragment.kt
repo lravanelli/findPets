@@ -42,6 +42,8 @@ class CadFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        retainInstance = true
+
         val dao = UserDatabase.getDatabase(context.applicationContext)
 
         val user: UserPers? = GetAsyncTask(dao!!).execute().get()
@@ -69,16 +71,23 @@ class CadFragment : Fragment() {
 
         btRegister.setOnClickListener { registerPet() }
 
-        if(savedInstanceState != null) {
-            val arq = savedInstanceState.getString("arq")
-            if(arq == "com") {
-                file = savedInstanceState.getSerializable("file") as File
-                val options = BitmapFactory.Options()
-                val bitmap = BitmapFactory.decodeFile(file!!.absolutePath, options)
-                imageView.setImageBitmap(bitmap)
-            }
+//        if(savedInstanceState != null) {
+//            val arq = savedInstanceState.getString("arq")
+//            if(arq == "com") {
+//                file = savedInstanceState.getSerializable("file") as File
+//                val options = BitmapFactory.Options()
+//                val bitmap = BitmapFactory.decodeFile(file!!.absolutePath, options)
+//                imageView.setImageBitmap(bitmap)
+//            }
+//
+//        }
 
+        if (file != null) {
+            val options = BitmapFactory.Options()
+                val bitmap = BitmapFactory.decodeFile(file!!.absolutePath, options)
+            imageView.setImageBitmap(bitmap)
         }
+
 
         return view
     }
@@ -177,11 +186,11 @@ class CadFragment : Fragment() {
         }
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        if(file != null) {
-            outState.putString("arq", "com")
-            outState.putSerializable("file", file)
-        } else {outState.putString("arq", "sem")}
-    }
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        if(file != null) {
+//            outState.putString("arq", "com")
+//            outState.putSerializable("file", file)
+//        } else {outState.putString("arq", "sem")}
+//    }
 }
