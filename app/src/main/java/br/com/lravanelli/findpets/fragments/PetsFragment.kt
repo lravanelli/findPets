@@ -1,6 +1,7 @@
 package br.com.lravanelli.findpets.fragments
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -16,6 +17,8 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import br.com.lravanelli.findpets.PetActivity
 import br.com.lravanelli.findpets.controller.PetService
+import br.com.lravanelli.findpets.database.UserDatabase
+import br.com.lravanelli.findpets.model.UserPers
 import br.com.lravanelli.findpets.util.Util
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,9 +29,20 @@ class PetsFragment : Fragment() {
 
 
     lateinit var list: List<Pet>
+    var idUser: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val dao = UserDatabase.getDatabase(context.applicationContext)
+
+        val user: UserPers? = GetAsyncTask(dao!!).execute().get()
+
+
+        if(user != null){
+            idUser = user.id
+        }
+
 
     }
 
@@ -64,19 +78,6 @@ class PetsFragment : Fragment() {
 
     fun getPets() {
 
-//        return listOf(Pet(
-//                1,
-//                "nome",
-//                "especie",
-//                "raca",
-//                "tel",
-//                "cep",
-//                "obs",
-//                1,
-//                //Date(),
-//                "http://www.gmdlogistica.com.br:8085/findapi/img/8/persona.png")
-//        )
-
 
         if (!Util.isNetworkAvailable(context))
         {
@@ -97,6 +98,15 @@ class PetsFragment : Fragment() {
                 }
             })
 
+        }
+    }
+
+    private inner class GetAsyncTask internal constructor(appDatabase: UserDatabase) : AsyncTask<Void, Void, UserPers>() {
+        private val db: UserDatabase = appDatabase
+
+        override fun doInBackground(vararg params: Void): UserPers {
+            val user :UserPers = db.userDao().getUser()
+            return user
         }
     }
 

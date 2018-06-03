@@ -2,8 +2,6 @@ package br.com.lravanelli.findpets.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.util.*
-
 
 data class Pet (val id: Int,
                 val nome: String,
@@ -13,7 +11,6 @@ data class Pet (val id: Int,
                 val cep: String,
                 val obs: String,
                 val id_user: Int,
-                //val data: Date,
                 val path_foto: String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
@@ -24,7 +21,6 @@ data class Pet (val id: Int,
             parcel.readString(),
             parcel.readString(),
             parcel.readInt(),
-            //TODO("data"),
             parcel.readString()) {
     }
 

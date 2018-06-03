@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
+import br.com.lravanelli.findpets.fragments.CadFragment
 import br.com.lravanelli.findpets.fragments.PetsFragment
 import br.com.lravanelli.findpets.fragments.SobreFragment
 import kotlinx.android.synthetic.main.activity_menu.*
@@ -20,7 +20,7 @@ class MenuActivity : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-
+                changeFragment(CadFragment())
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_about -> {
