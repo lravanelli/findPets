@@ -14,7 +14,8 @@ import kotlinx.android.synthetic.main.pet_item.view.*
 class PetAdapter(val context: Context,
                  val pets: List<Pet>,
                  val listener: (Pet) -> Unit,
-                 val listenerDelete: (Pet) -> Unit) : RecyclerView.Adapter<PetAdapter.PetViewHolder>() {
+                 val listenerDelete: (Pet) -> Unit,
+                 val listenerEdit: (Pet) -> Unit) : RecyclerView.Adapter<PetAdapter.PetViewHolder>() {
 
     override fun getItemCount(): Int {
 
@@ -32,13 +33,13 @@ class PetAdapter(val context: Context,
         val pet = pets[position]
 
         holder?.let {
-            holder.bindView(pet, listener, listenerDelete)
+            holder.bindView(pet, listener, listenerDelete, listenerEdit)
         }
     }
 
     class  PetViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindView(pet: Pet, listener: (Pet) -> Unit, listenerDelete: (Pet) -> Unit) = with(itemView) {
+        fun bindView(pet: Pet, listener: (Pet) -> Unit, listenerDelete: (Pet) -> Unit, listenerEdit: (Pet) -> Unit) = with(itemView) {
 
             tvNome.text = pet.nome
             tvEspecie.text = pet.especie
@@ -50,6 +51,10 @@ class PetAdapter(val context: Context,
 
             ivDelete.setOnClickListener{
                 listenerDelete(pet)
+            }
+
+            ivEdit.setOnClickListener{
+                listenerEdit(pet)
             }
 
             setOnClickListener { listener(pet) }

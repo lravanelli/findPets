@@ -43,7 +43,6 @@ class PetsFragment : Fragment() {
             idUser = user.id
         }
 
-
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -58,6 +57,7 @@ class PetsFragment : Fragment() {
 
 
     fun loadList() {
+        rvPets.Recycler()
         val recyclerView: RecyclerView = rvPets
 
 
@@ -70,7 +70,18 @@ class PetsFragment : Fragment() {
             startActivity(intentDetalhe)
 
         }, {
-            Toast.makeText(context, "Delete ${it.nome}", Toast.LENGTH_LONG).show()
+            deletePet(it)
+        }, {
+            val cadFragment = CadFragment()
+            val bundle: Bundle = Bundle()
+            bundle.putParcelable("pet", it)
+
+            cadFragment.arguments = bundle
+
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            fragmentTransaction.replace(R.id.content_main, cadFragment)
+            fragmentTransaction.commit()
+
         })
         recyclerView.layoutManager = LinearLayoutManager(context)
 
@@ -107,6 +118,32 @@ class PetsFragment : Fragment() {
         override fun doInBackground(vararg params: Void): UserPers {
             val user :UserPers = db.userDao().getUser()
             return user
+        }
+    }
+
+    fun deletePet(petDel: Pet){
+        if (!Util.isNetworkAvailable(context)) {
+            Toast.makeText(context, R.string.conection_avaiable, Toast.LENGTH_SHORT).show()
+        } else {
+            PetService.service.deletePet(petDel.id).enqueue(object : Callback<Pet> {
+
+                override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
+
+                    Log.d("user", response.body()?.toString())
+                    val PetResponse = response.body()?.copy()
+                    if (PetResponse?.id == -1){
+                        Toast.makeText(context, PetResponse.nome, Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(context, getString(R.string.pet_deleted), Toast.LENGTH_LONG).show()
+                        getPets()
+
+                    }
+                }
+                override fun onFailure(call: Call<Pet>?, t: Throwable?) {
+                    Toast.makeText(context, R.string.login_error, Toast.LENGTH_LONG).show()
+
+                }
+            })
         }
     }
 

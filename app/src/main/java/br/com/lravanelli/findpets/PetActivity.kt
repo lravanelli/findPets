@@ -1,8 +1,6 @@
 package br.com.lravanelli.findpets
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import br.com.lravanelli.findpets.model.Pet
 import com.squareup.picasso.Picasso
@@ -18,11 +16,13 @@ class PetActivity : AppCompatActivity() {
         setContentView(R.layout.activity_pet)
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
-            val intentMaps = Intent(this, MapsActivity::class.java)
+//            val intentMaps = Intent(this, MapsActivity::class.java)
+//
+//            intentMaps.putExtra("pet", pet)
+//
+//            startActivity(intentMaps)
+            //deletePet()
 
-            intentMaps.putExtra("pet", pet)
-
-            startActivity(intentMaps)
         }
 
 
@@ -39,9 +39,13 @@ class PetActivity : AppCompatActivity() {
         tvDetalheEspecie.text = pet.especie
         tvDetalheRaca.text = pet.raca
 
+        val mapFragment = br.com.lravanelli.findpets.fragments.MapFragment()
+
+        mapFragment.arguments = intent.extras
+
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.mapaFragment, br.com.lravanelli.findpets.fragments.MapFragment())
+        fragmentTransaction.replace(R.id.mapaFragment, mapFragment)
         fragmentTransaction.commit()
     }
 

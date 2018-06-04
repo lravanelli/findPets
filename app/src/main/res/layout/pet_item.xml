@@ -47,7 +47,13 @@
                 tools:text="Raça"
                 android:id="@+id/tvRaca"/>
         </LinearLayout>
-
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="4dp"
+            android:orientation="vertical">
         <ImageView
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -56,6 +62,16 @@
             android:layout_height="@dimen/dimen_icon_del"
             android:id="@+id/ivDelete"
             android:padding="8dp"/>
+
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/edit"
+                android:layout_width="@dimen/dimen_icon_del"
+                android:layout_height="@dimen/dimen_icon_del"
+                android:id="@+id/ivEdit"
+                android:padding="8dp"/>
+        </LinearLayout>
     </RelativeLayout>
 
 

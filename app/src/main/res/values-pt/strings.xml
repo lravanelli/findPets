@@ -23,4 +23,8 @@
     <string name="pet_zip_code">CEP</string>
     <string name="pet_last_date">Visto por último</string>
     <string name="pet_comments">Observações</string>
+    <string name="last_location">Última Localização</string>
+    <string name="pet_deleted">Pet excluído com sucesso</string>
+    <string name="zip_not_found">CEP não localizado</string>
+    <string name="update_pet">Atualizar Pet</string>
 </resources>

@@ -11,4 +11,10 @@ interface PetRest {
 
     @POST("pets/")
     fun createPet(@Body pet: Pet) : Call<Pet>
+
+    @PUT("pets/")
+    fun updatePet(@Body pet: Pet) : Call<Pet>
+
+    @DELETE("pets/{id}")
+    fun deletePet(@Path("id") id: Int): Call<Pet>
 }
