@@ -180,7 +180,7 @@ class CadFragment : Fragment() {
                 imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
             }
 
-            val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64)
+            val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64)
 
 
             PetService.service.updatePet(pet).enqueue(object : Callback<Pet> {
@@ -188,7 +188,7 @@ class CadFragment : Fragment() {
                 override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
                     val userResponse = response.body()?.copy()
 
-                    if (userResponse?.id != 0) {
+                    if (userResponse?.id != -1) {
 
                         Toast.makeText(context, "pet atualizado com sucesso", Toast.LENGTH_LONG).show()
 
@@ -200,7 +200,7 @@ class CadFragment : Fragment() {
                 }
 
                 override fun onFailure(call: Call<Pet>?, t: Throwable?) {
-                    Log.d("ERRO", t?.message)
+                    Log.d("ERRO", pet.nome)
 
                 }
             })

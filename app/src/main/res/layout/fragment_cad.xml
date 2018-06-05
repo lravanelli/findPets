@@ -41,7 +41,8 @@
             android:textAlignment="center"
             android:textColorHint="#CCC"
             android:hint="@string/pet_name"
-            android:id="@+id/etName"/>
+            android:id="@+id/etName"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,7 +60,8 @@
             android:textAlignment="center"
             android:textColorHint="#CCC"
             android:hint="@string/pet_genus"
-            android:id="@+id/etGenus"/>
+            android:id="@+id/etGenus"
+            android:singleLine="true"/>
 
 
         <TextView
@@ -78,7 +80,8 @@
             android:textAlignment="center"
             android:textColorHint="#CCC"
             android:hint="@string/pet_breed"
-            android:id="@+id/etBreed"/>
+            android:id="@+id/etBreed"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -96,7 +99,8 @@
             android:textAlignment="center"
             android:textColorHint="#CCC"
             android:hint="@string/pet_phone"
-            android:id="@+id/etPhone"/>
+            android:id="@+id/etPhone"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -114,7 +118,8 @@
             android:textAlignment="center"
             android:textColorHint="#CCC"
             android:hint="@string/pet_zip_code"
-            android:id="@+id/etZip"/>
+            android:id="@+id/etZip"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -143,7 +148,6 @@
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
             android:id="@+id/btResgister"
-            android:layout_marginBottom="100dp"
             android:textAllCaps="false"/>
 
     </LinearLayout>

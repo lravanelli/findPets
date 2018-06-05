@@ -7,7 +7,10 @@
     android:layout_height="match_parent"
     tools:context="br.com.lravanelli.findpets.MenuActivity">
 
-    <include layout="@layout/content_main"/>
+    <include
+        layout="@layout/content_main"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
