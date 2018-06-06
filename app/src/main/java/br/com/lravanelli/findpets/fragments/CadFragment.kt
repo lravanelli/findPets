@@ -149,7 +149,7 @@ class CadFragment : Fragment() {
             val imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
 
 
-            val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64)
+            val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
 
 
             PetService.service.createPet(pet).enqueue(object : Callback<Pet> {
@@ -180,7 +180,7 @@ class CadFragment : Fragment() {
                 imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
             }
 
-            val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64)
+            val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
 
 
             PetService.service.updatePet(pet).enqueue(object : Callback<Pet> {

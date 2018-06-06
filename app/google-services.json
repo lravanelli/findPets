@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "660544533740",
+    "firebase_url": "https://findpets-206114.firebaseio.com",
+    "project_id": "findpets-206114",
+    "storage_bucket": "findpets-206114.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660544533740:android:b202a64f24d8b8f9",
+        "android_client_info": {
+          "package_name": "br.com.lravanelli.findpets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660544533740-nq3idecclba4sqvmqa1eaa82ilufovdt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.lravanelli.findpets",
+            "certificate_hash": "5267b5656336f9c82a19f637efd21231b04c7f8d"
+          }
+        },
+        {
+          "client_id": "660544533740-n80k9ok5icaoh63lj98rc03ale53qvvi.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "660544533740-n80k9ok5icaoh63lj98rc03ale53qvvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1rSmVj71h8XFEh6KEAS-EAoBCWRa-X4k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660544533740-n80k9ok5icaoh63lj98rc03ale53qvvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
