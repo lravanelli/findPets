@@ -36,4 +36,6 @@
     <string name="pet_deleted">Pet deleted successfully</string>
     <string name="zip_not_found">Zip code not found</string>
     <string name="update_pet">Update Pet</string>
+    <string name="required">" is required"</string>
+    <string name="photo">photo</string>
 </resources>

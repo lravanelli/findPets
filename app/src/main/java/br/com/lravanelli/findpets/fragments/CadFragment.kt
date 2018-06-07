@@ -10,6 +10,8 @@ import br.com.lravanelli.findpets.R
 import kotlinx.android.synthetic.main.fragment_cad.*
 import android.content.Intent
 import android.app.Activity
+import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Environment
 import android.util.Base64
 import java.io.File
@@ -19,6 +21,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import br.com.lravanelli.findpets.controller.PetService
 import br.com.lravanelli.findpets.database.UserDatabase
@@ -110,6 +113,7 @@ class CadFragment : Fragment() {
         return view
     }
 
+
     private fun loadPhoto() {
 
         val f = getSdCardFile("pet.jpg")
@@ -143,69 +147,99 @@ class CadFragment : Fragment() {
     }
 
     private fun registerPet() {
-
-        if(pet == null) {
-            val bytes = file!!.readBytes()
-            val imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
-
-
-            val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
-
-
-            PetService.service.createPet(pet).enqueue(object : Callback<Pet> {
-
-                override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
-                    val userResponse = response.body()?.copy()
-
-                    if (userResponse?.id != 0) {
-
-                        Toast.makeText(context, "pet cadastrado com sucesso", Toast.LENGTH_LONG).show()
-
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.content_main, PetsFragment())
-                        fragmentTransaction.commit()
-
-                    }
-                }
-
-                override fun onFailure(call: Call<Pet>?, t: Throwable?) {
-                    Log.d("ERRO", t?.message)
-
-                }
-            })
-        } else {
-            var imagemBase64: String = ""
-            if(file != null) {
+        if(validateFields()) {
+            if (pet == null) {
                 val bytes = file!!.readBytes()
-                imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
-            }
-
-            val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
+                val imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
 
 
-            PetService.service.updatePet(pet).enqueue(object : Callback<Pet> {
+                val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
 
-                override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
-                    val userResponse = response.body()?.copy()
 
-                    if (userResponse?.id != -1) {
+                PetService.service.createPet(pet).enqueue(object : Callback<Pet> {
 
-                        Toast.makeText(context, "pet atualizado com sucesso", Toast.LENGTH_LONG).show()
+                    override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
+                        val userResponse = response.body()?.copy()
 
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        fragmentTransaction.replace(R.id.content_main, PetsFragment())
-                        fragmentTransaction.commit()
+                        if (userResponse?.id != 0) {
+
+                            Toast.makeText(context, "pet cadastrado com sucesso", Toast.LENGTH_LONG).show()
+
+                            val fragmentTransaction = fragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.content_main, PetsFragment())
+                            fragmentTransaction.commit()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Pet>?, t: Throwable?) {
+                        Log.d("ERRO", t?.message)
 
                     }
+                })
+            } else {
+                var imagemBase64: String = ""
+                if (file != null) {
+                    val bytes = file!!.readBytes()
+                    imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
                 }
 
-                override fun onFailure(call: Call<Pet>?, t: Throwable?) {
-                    Log.d("ERRO", pet.nome)
+                val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
 
-                }
-            })
+
+                PetService.service.updatePet(pet).enqueue(object : Callback<Pet> {
+
+                    override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
+                        val userResponse = response.body()?.copy()
+
+                        if (userResponse?.id != -1) {
+
+                            Toast.makeText(context, "pet atualizado com sucesso", Toast.LENGTH_LONG).show()
+
+                            val fragmentTransaction = fragmentManager.beginTransaction()
+                            fragmentTransaction.replace(R.id.content_main, PetsFragment())
+                            fragmentTransaction.commit()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Pet>?, t: Throwable?) {
+                        Log.d("ERRO", pet.nome)
+
+                    }
+                })
+            }
         }
 
+    }
+
+    private fun validateFields() :Boolean {
+        var nError: Boolean = false
+        if ((file == null) && (pet == null)) {
+            Toast.makeText(context, getString(R.string.photo) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else if(etName.text.isBlank()) {
+            Toast.makeText(context, getString(R.string.pet_name) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else if(etGenus.text.isBlank()) {
+            Toast.makeText(context, getString(R.string.pet_genus) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else if(etBreed.text.isBlank()) {
+            Toast.makeText(context, getString(R.string.pet_breed) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else if(etPhone.text.isBlank()) {
+            Toast.makeText(context, getString(R.string.pet_phone) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else if(etZip.text.isBlank()) {
+            Toast.makeText(context, getString(R.string.pet_zip_code) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else if(etComments.text.isBlank()) {
+            Toast.makeText(context, getString(R.string.pet_comments) + getString(R.string.required), Toast.LENGTH_LONG).show()
+            nError = false
+        } else {
+            nError = true
+        }
+        return nError
     }
 
     private fun showImage(file: File?) {
@@ -243,4 +277,6 @@ class CadFragment : Fragment() {
 //            outState.putSerializable("file", file)
 //        } else {outState.putString("arq", "sem")}
 //    }
+
+
 }

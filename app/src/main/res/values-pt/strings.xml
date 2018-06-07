@@ -27,4 +27,6 @@
     <string name="pet_deleted">Pet excluído com sucesso</string>
     <string name="zip_not_found">CEP não localizado</string>
     <string name="update_pet">Atualizar Pet</string>
+    <string name="required">" é obrigatório"</string>
+    <string name="photo">Foto</string>
 </resources>

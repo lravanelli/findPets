@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.lravanelli.findpets.fragments.CadFragment">
+    tools:context="br.com.lravanelli.findpets.fragments.CadFragment"
+    >
 
 
     <LinearLayout
@@ -24,7 +25,7 @@
             android:height="200dp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/ivPetFoto"
-            android:src="@mipmap/logo"/>
+            android:src="@drawable/add"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,7 +101,8 @@
             android:textColorHint="#CCC"
             android:hint="@string/pet_phone"
             android:id="@+id/etPhone"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:inputType="phone"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -119,7 +121,8 @@
             android:textColorHint="#CCC"
             android:hint="@string/pet_zip_code"
             android:id="@+id/etZip"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:inputType="number"/>
 
         <TextView
             android:layout_width="wrap_content"
