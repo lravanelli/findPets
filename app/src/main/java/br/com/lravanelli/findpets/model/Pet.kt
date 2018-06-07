@@ -2,6 +2,7 @@ package br.com.lravanelli.findpets.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 data class Pet (val id: Int,
                 val nome: String,
@@ -53,4 +54,3 @@ data class Pet (val id: Int,
         }
     }
 }
-

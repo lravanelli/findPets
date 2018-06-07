@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import com.google.firebase.iid.FirebaseInstanceId
+
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -38,7 +41,8 @@ class LoginActivity : AppCompatActivity() {
         {
             Toast.makeText(this, R.string.conection_avaiable, Toast.LENGTH_SHORT).show()
         } else {
-            val user: User = User(0, etEmail.text.toString(), etPassword.text.toString(), "")
+            val refreshedToken = FirebaseInstanceId.getInstance().token
+            val user: User = User(0, etEmail.text.toString(), etPassword.text.toString(), refreshedToken ?: "")
 
 
             UserService.service.createUser(user).enqueue(object : Callback<User> {
@@ -49,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, R.string.user_exist, Toast.LENGTH_LONG).show()
                     } else if(userResponse?.id != 0) {
 
-                        val userP: UserPers = UserPers(userResponse!!.id , etEmail.text.toString(), cbRemember.isChecked, "")
+                        val userP: UserPers = UserPers(userResponse!!.id , etEmail.text.toString(), cbRemember.isChecked, refreshedToken ?: "")
 
                         val dao = UserDatabase.getDatabase(applicationContext)
 
@@ -85,7 +89,9 @@ class LoginActivity : AppCompatActivity() {
         {
             Toast.makeText(this, R.string.conection_avaiable, Toast.LENGTH_SHORT).show()
         } else {
-            val user: User = User(0, etEmail.text.toString(), etPassword.text.toString(), "")
+
+            val refreshedToken = FirebaseInstanceId.getInstance().token
+            val user: User = User(0, etEmail.text.toString(), etPassword.text.toString(), refreshedToken ?: "")
 
 
             UserService.service.veriUser(user).enqueue(object : Callback<User> {
@@ -100,7 +106,7 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, R.string.incorrect_password, Toast.LENGTH_LONG).show()
                     } else {
 
-                        val userP: UserPers = UserPers(userResponse!!.id , etEmail.text.toString(), cbRemember.isChecked, "")
+                        val userP: UserPers = UserPers(userResponse!!.id , etEmail.text.toString(), cbRemember.isChecked, refreshedToken ?: "")
 
                         val dao = UserDatabase.getDatabase(applicationContext)
 

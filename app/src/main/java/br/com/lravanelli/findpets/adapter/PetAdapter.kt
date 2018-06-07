@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.pet_item.view.*
 
 
@@ -44,6 +45,7 @@ class PetAdapter(val context: Context,
             tvNome.text = pet.nome
             tvEspecie.text = pet.especie
             tvRaca.text = pet.raca
+            //ivFoto.
             Picasso.with(context)
                     .load(pet.path_foto)
                     .resize(100,100)
