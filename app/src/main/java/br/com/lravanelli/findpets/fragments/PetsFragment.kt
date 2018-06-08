@@ -63,11 +63,7 @@ class PetsFragment : Fragment() {
 
         recyclerView.adapter = PetAdapter(context, list, {
 
-            val intentDetalhe = Intent(context, PetActivity::class.java)
-
-            intentDetalhe.putExtra("pet", it)
-
-            startActivity(intentDetalhe)
+            updatePet(it)
 
         }, {
             deletePet(it)
@@ -124,6 +120,8 @@ class PetsFragment : Fragment() {
     fun deletePet(petDel: Pet){
         if (!Util.isNetworkAvailable(context)) {
             Toast.makeText(context, R.string.conection_avaiable, Toast.LENGTH_SHORT).show()
+        } else if(petDel.id_user != idUser){
+            Toast.makeText(context, "Você não o proprietário desse pet.", Toast.LENGTH_SHORT).show()
         } else {
             PetService.service.deletePet(petDel.id).enqueue(object : Callback<Pet> {
 
@@ -145,6 +143,19 @@ class PetsFragment : Fragment() {
                 }
             })
         }
+    }
+
+    fun updatePet(petUp: Pet){
+        if (petUp.id_user != idUser){
+            Toast.makeText(context, "Você não o proprietário desse pet.", Toast.LENGTH_SHORT).show()
+        } else {
+            val intentDetalhe = Intent(context, PetActivity::class.java)
+
+            intentDetalhe.putExtra("pet", petUp)
+
+            startActivity(intentDetalhe)
+        }
+
     }
 
 }
