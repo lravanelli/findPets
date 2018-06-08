@@ -13,7 +13,8 @@ data class Pet (val id: Int,
                 val obs: String,
                 val id_user: Int,
                 val path_foto: String,
-                val chave_push: String) : Parcelable {
+                val chave_push: String,
+                val sexo: String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readString(),
@@ -23,6 +24,7 @@ data class Pet (val id: Int,
             parcel.readString(),
             parcel.readString(),
             parcel.readInt(),
+            parcel.readString(),
             parcel.readString(),
             parcel.readString()) {
     }
@@ -38,6 +40,7 @@ data class Pet (val id: Int,
         parcel.writeInt(id_user)
         parcel.writeString(path_foto)
         parcel.writeString(chave_push)
+        parcel.writeString(sexo)
     }
 
     override fun describeContents(): Int {

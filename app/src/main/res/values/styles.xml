@@ -24,4 +24,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="editText">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColorHint">#CCC</item>
+    </style>
+
+
 </resources>

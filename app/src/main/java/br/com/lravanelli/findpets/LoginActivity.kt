@@ -1,5 +1,6 @@
 package br.com.lravanelli.findpets
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
@@ -31,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signUp() {
-
 
         if (etEmail.text.isEmpty()) {
             Toast.makeText(this, R.string.enter_email, Toast.LENGTH_SHORT).show()
@@ -130,6 +130,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private inner class InsertAsyncTask internal constructor(appDatabase: UserDatabase) : AsyncTask<UserPers, Void, String>() {
         private val db: UserDatabase = appDatabase
 
@@ -139,6 +140,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private inner class DeleteAsyncTask internal constructor(appDatabase: UserDatabase) : AsyncTask<Void, Void, String>() {
         private val db: UserDatabase = appDatabase
 
@@ -148,6 +150,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     private inner class GetAsyncTask internal constructor(appDatabase: UserDatabase) : AsyncTask<Void, Void, UserPers>() {
         private val db: UserDatabase = appDatabase
 

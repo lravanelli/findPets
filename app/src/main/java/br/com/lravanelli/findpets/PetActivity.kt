@@ -10,11 +10,14 @@ import kotlinx.android.synthetic.main.activity_pet.*
 import kotlinx.android.synthetic.main.content_pet.*
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.net.Uri
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.util.Log
+import br.com.lravanelli.findpets.util.Util
 
 
 class PetActivity : AppCompatActivity() {
@@ -46,6 +49,8 @@ class PetActivity : AppCompatActivity() {
 
         tvDetalheEspecie.text = pet.especie
         tvDetalheRaca.text = pet.raca
+        tvCEP.text = pet.cep
+        tvdetalheBreed.text = pet.raca
 
         val mapFragment = br.com.lravanelli.findpets.fragments.MapFragment()
 
@@ -55,6 +60,26 @@ class PetActivity : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.mapaFragment, mapFragment)
         fragmentTransaction.commit()
+
+        if(Util.isNetworkAvailable(this)) {
+            val geoCoder = Geocoder(this)
+            var address: List<Address>?
+
+            address = geoCoder.getFromLocationName(pet.cep, 1)
+
+            if (address.isNotEmpty()) {
+                val location = address[0]
+                if (address.size == 0) {
+                    tvLastLocation.text = getString(R.string.zip_not_found)
+                }
+            } else {
+                tvLastLocation.text = getString(R.string.zip_not_found)
+            }
+        } else {
+            tvLastLocation.text = getString(R.string.conection_avaiable)
+        }
+
+
     }
 
     fun share() {

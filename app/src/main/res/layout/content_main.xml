@@ -8,7 +8,8 @@
     android:layout_height="0dp"
     tools:context="br.com.lravanelli.findpets.MenuActivity"
     app:layout_constraintBottom_toTopOf="@+id/navigation"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/theme_bg">
 
 
 

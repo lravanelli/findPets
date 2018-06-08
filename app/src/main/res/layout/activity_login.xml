@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_bg"
+    android:background="@drawable/theme_bg"
     android:theme="@style/AppTheme"
     tools:context="br.com.lravanelli.findpets.LoginActivity">
 
@@ -34,11 +34,11 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="#CCC"
+            style="@style/editText"
             android:hint="@string/e_mail"
             android:id="@+id/etEmail"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,10 +57,10 @@
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:textColorHint="#CCC"
+            style="@style/editText"
             android:hint="@string/password_hint"
-            android:id="@+id/etPassword"/>
+            android:id="@+id/etPassword"
+            android:singleLine="true"/>
 
         <CheckBox
             android:id="@+id/cbRemember"
@@ -68,9 +68,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/remember_my_password"
-            android:textColor="@color/colorAccent"
+            android:textColor="#EEE"
             android:textSize="6pt"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:buttonTint="#B1BCBE"/>
 
         <Button
             android:layout_width="match_parent"

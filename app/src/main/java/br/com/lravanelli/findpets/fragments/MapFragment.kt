@@ -1,31 +1,27 @@
 package br.com.lravanelli.findpets.fragments
 
-import android.app.AlertDialog
-import android.content.Context
 import android.location.Address
 import android.location.Geocoder
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import br.com.lravanelli.findpets.R
 import br.com.lravanelli.findpets.model.Pet
+import br.com.lravanelli.findpets.util.Util
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import kotlinx.android.synthetic.main.content_pet.*
-import kotlinx.android.synthetic.main.fragment_map.*
 
 class MapFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var MapPet: GoogleMap
+
 
     override fun onMapReady(map: GoogleMap) {
         MapPet = map
@@ -33,23 +29,25 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         MapPet.clear()
 
-        val geoCoder = Geocoder(context)
-        var address : List<Address>?
+        if(Util.isNetworkAvailable(context)) {
+            val geoCoder = Geocoder(context)
+            var address: List<Address>?
 
-        val pet: Pet = arguments!!.getParcelable<Pet>("pet")
+            val pet: Pet = arguments!!.getParcelable<Pet>("pet")
 
-        address = geoCoder.getFromLocationName(pet.cep, 1)
+            address = geoCoder.getFromLocationName(pet.cep, 1)
 
 
-        if(address.isNotEmpty()) {
-            val location = address[0]
-            if(address.size > 0) {
-                adicionarMarcador(location.latitude, location.longitude, getString(R.string.last_location))
+            if (address.isNotEmpty()) {
+                val location = address[0]
+                if (address.size > 0) {
+                    adicionarMarcador(location.latitude, location.longitude, getString(R.string.last_location))
+                } else {
+                    Log.d("map", "location error")
+                }
             } else {
                 Log.d("map", "location error")
             }
-        } else {
-            Log.d("map", "location error")
         }
 
         // Add a marker in Sydney and move the camera
@@ -61,6 +59,8 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val teste = ""
 
     }
 

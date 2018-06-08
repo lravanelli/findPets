@@ -29,4 +29,10 @@
     <string name="update_pet">Atualizar Pet</string>
     <string name="required">" é obrigatório"</string>
     <string name="photo">Foto</string>
+    <string name="developed_by">Desenvolvido por Luis Fernando Ravanelli Lopes</string>
+    <string name="version">Versão 1.0.0.1</string>
+    <string name="title_exit">Sair</string>
+    <string name="pet_gender">Sexo</string>
+    <string name="pet_female">Fêmea</string>
+    <string name="pet_male">Macho</string>
 </resources>

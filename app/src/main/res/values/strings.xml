@@ -38,4 +38,10 @@
     <string name="update_pet">Update Pet</string>
     <string name="required">" is required"</string>
     <string name="photo">photo</string>
+    <string name="developed_by">Developed by Luis Fernando Ravanelli Lopes</string>
+    <string name="version">Version 1.0.0.1</string>
+    <string name="title_exit">Logout</string>
+    <string name="pet_gender">Gender</string>
+    <string name="pet_female">Female</string>
+    <string name="pet_male">Male</string>
 </resources>

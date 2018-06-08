@@ -10,8 +10,6 @@ import br.com.lravanelli.findpets.R
 import kotlinx.android.synthetic.main.fragment_cad.*
 import android.content.Intent
 import android.app.Activity
-import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Environment
 import android.util.Base64
 import java.io.File
@@ -21,15 +19,15 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.util.Log
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import br.com.lravanelli.findpets.MenuActivity
 import br.com.lravanelli.findpets.controller.PetService
 import br.com.lravanelli.findpets.database.UserDatabase
 import br.com.lravanelli.findpets.model.Pet
 import br.com.lravanelli.findpets.model.UserPers
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.fragment_cad.view.*
-import kotlinx.android.synthetic.main.pet_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -83,6 +81,10 @@ class CadFragment : Fragment() {
             view.etGenus.setText(pet?.especie)
             view.etPhone.setText(pet?.tel)
             view.etZip.setText(pet?.cep)
+            when (pet?.sexo) {
+                "F" -> view.rbFemale.isChecked = true
+                "M" -> view.rbMale.isChecked = true
+            }
             Picasso.with(context)
                     .load(pet?.path_foto)
                     .resize(100,100)
@@ -116,9 +118,6 @@ class CadFragment : Fragment() {
 
     private fun loadPhoto() {
 
-        val f = getSdCardFile("pet.jpg")
-        file = f;
-
         //val uri = FileProvider.getUriForFile(context, context.applicationContext.packageName + ".provider", f)
 
         val intent = Intent()
@@ -134,7 +133,10 @@ class CadFragment : Fragment() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 123) {
 
-                var bitmap: Bitmap =  MediaStore.Images.Media.getBitmap(context.getContentResolver(), data!!.getData());
+                val f = getSdCardFile("pet.jpg")
+                file = f;
+
+                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), data!!.getData());
 
                 val fos: FileOutputStream
                 fos = FileOutputStream(file)
@@ -144,6 +146,7 @@ class CadFragment : Fragment() {
                 showImage(file)
             }
         }
+
     }
 
     private fun registerPet() {
@@ -152,8 +155,14 @@ class CadFragment : Fragment() {
                 val bytes = file!!.readBytes()
                 val imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
 
+                var gender: String = ""
+                when (rgGender.checkedRadioButtonId) {
+                    0 -> gender = "F"
+                    1 -> gender = "M"
+                }
 
-                val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
+
+                val pet: Pet = Pet(0, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "", gender)
 
 
                 PetService.service.createPet(pet).enqueue(object : Callback<Pet> {
@@ -184,8 +193,13 @@ class CadFragment : Fragment() {
                     imagemBase64 = Base64.encodeToString(bytes, Base64.NO_WRAP)
                 }
 
-                val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "")
+                var gender: String = ""
+                when (rgGender.checkedRadioButtonId) {
+                    0 -> gender = "F"
+                    1 -> gender = "M"
+                }
 
+                val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "", gender)
 
                 PetService.service.updatePet(pet).enqueue(object : Callback<Pet> {
 

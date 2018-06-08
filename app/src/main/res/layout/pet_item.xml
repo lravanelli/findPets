@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@drawable/theme_bg">
 
         <ImageView
             android:layout_width="@dimen/dimen_foto_list"
@@ -18,7 +19,6 @@
 
         <LinearLayout
             android:layout_toRightOf="@id/ivFoto"
-            android:layout_toLeftOf="@id/ivDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="4dp"
@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
                 android:textStyle="bold|italic"
+                style="@style/editText"
                 android:id="@+id/tvNome"
                 tools:text="Nome"
                 android:paddingTop="@dimen/padding_top_item"/>
@@ -37,7 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Especie"
-                android:id="@+id/tvEspecie"/>
+                android:id="@+id/tvEspecie"
+                style="@style/editText"/>
 
             <TextView
                 android:ellipsize="end"
@@ -45,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Raça"
-                android:id="@+id/tvRaca"/>
+                android:id="@+id/tvRaca"
+                style="@style/editText"/>
         </LinearLayout>
         <LinearLayout
             android:layout_alignParentRight="true"
