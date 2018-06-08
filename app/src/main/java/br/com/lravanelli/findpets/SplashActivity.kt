@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
 import br.com.lravanelli.findpets.database.UserDatabase
-import br.com.lravanelli.findpets.model.User
 import br.com.lravanelli.findpets.model.UserPers
 import kotlinx.android.synthetic.main.activity_splash.*
 

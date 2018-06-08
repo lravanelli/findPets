@@ -47,10 +47,15 @@ class PetActivity : AppCompatActivity() {
                 .resize(100,100)
                 .into(ivBanner)
 
-        tvDetalheEspecie.text = pet.especie
-        tvDetalheRaca.text = pet.raca
-        tvCEP.text = pet.cep
-        tvdetalheBreed.text = pet.raca
+        when (pet.sexo){
+            "F" -> tvDetailGender.text = "${getString(R.string.pet_gender)}: ${getString(R.string.pet_female)}"
+            "M" -> tvDetailGender.text = "${getString(R.string.pet_gender)}: ${getString(R.string.pet_male)}"
+        }
+        tvDetailGenus.text =  "${getString(R.string.pet_genus)}: ${pet.especie}"
+        tvDetailBreed.text = "${getString(R.string.pet_breed)}: ${pet.raca}"
+        tvDetailZipCode.text = "${getString(R.string.pet_zip_code)}: ${pet.cep}"
+        tvDetailPhone.text = "${getString(R.string.pet_phone)}: ${pet.tel}"
+        etDetailComments.setText(pet.obs)
 
         val mapFragment = br.com.lravanelli.findpets.fragments.MapFragment()
 
@@ -85,11 +90,11 @@ class PetActivity : AppCompatActivity() {
     fun share() {
         val intentShare = Intent();
         intentShare.action = Intent.ACTION_SEND
-        intentShare.putExtra(Intent.EXTRA_SUBJECT, "Ajude a encontrar o pet ${pet.nome}" )
-        intentShare.putExtra(Intent.EXTRA_TEXT, "Este pet está perdido, ajude-nos a encontrar o caminha de casa ${pet.path_foto}")
+        intentShare.putExtra(Intent.EXTRA_SUBJECT, "${getString(R.string.pet_help_find)} ${pet.nome}" )
+        intentShare.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.pet_message)} ${pet.path_foto}")
         intentShare.type = "text/html"
 
-        startActivity(Intent.createChooser(intentShare, "Compartilhar"));
+        startActivity(Intent.createChooser(intentShare, getString(R.string.share)));
     }
 
     fun call() {
@@ -121,8 +126,8 @@ class PetActivity : AppCompatActivity() {
 
                 val builder = AlertDialog.Builder(this)
 
-                builder.setMessage("Necessária a permissao para fazer ligações")
-                        .setTitle("Permissao Requerida")
+                builder.setMessage(getString(R.string.message_permission))
+                        .setTitle(getString(R.string.permission_title))
 
                 builder.setPositiveButton("OK") {
                     dialog, id ->

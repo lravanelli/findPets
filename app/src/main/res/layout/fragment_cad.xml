@@ -16,14 +16,13 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_register"
             android:layout_gravity="center_horizontal"
-            android:textColor="#EEE"
-            android:padding="@dimen/padding_top_item"/>
+            style="@style/textViewPad"/>
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:width="200dp"
-            android:height="200dp"
+            android:layout_width="@dimen/imageCadDimen"
+            android:layout_height="@dimen/imageCadDimen"
+            android:width="@dimen/imageCadDimen"
+            android:height="@dimen/imageCadDimen"
             android:layout_gravity="center_horizontal"
             android:id="@+id/ivPetFoto"
             android:src="@drawable/add"/>
@@ -33,14 +32,11 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_name"
             android:layout_gravity="center_horizontal"
-            android:textColor="#EEE"/>
+            style="@style/textView"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/pet_name"
@@ -52,15 +48,11 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_genus"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:textColor="#EEE"/>
+            style="@style/textViewTopMargin"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/pet_genus"
@@ -74,15 +66,11 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_breed"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:textColor="#EEE"/>
+            style="@style/textViewTopMargin"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/pet_breed"
@@ -94,8 +82,7 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_gender"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:textColor="#EEE"/>
+            style="@style/textViewTopMargin"/>
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -103,10 +90,10 @@
             android:id="@+id/rgGender"
             android:orientation="horizontal"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="@dimen/cinquenta"
+            android:layout_marginRight="@dimen/cinquenta"
             android:textAlignment="center"
-            android:textColorHint="#CCC"
+            android:textColorHint="@color/colorHint"
             style="@style/editText">
             <RadioButton
                 android:layout_width="match_parent"
@@ -114,8 +101,8 @@
                 android:layout_weight="0.5"
                 android:id="@+id/rbFemale"
                 android:text="@string/pet_female"
-                android:buttonTint="#B1BCBE"
-                android:textColor="#EEE"
+                android:buttonTint="@color/buttonTint"
+                android:textColor="@color/textview_color"
                 android:checked="true"/>
             <RadioButton
                 android:layout_width="match_parent"
@@ -123,8 +110,8 @@
                 android:layout_weight="0.5"
                 android:id="@+id/rbMale"
                 android:text="@string/pet_male"
-                android:buttonTint="#B1BCBE"
-                android:textColor="#EEE"/>
+                android:buttonTint="@color/buttonTint"
+                android:textColor="@color/textview_color"/>
 
         </RadioGroup>
         <!--<EditText
@@ -144,15 +131,11 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_phone"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:textColor="#EEE"/>
+            style="@style/textViewTopMargin"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/pet_phone"
@@ -165,15 +148,11 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_zip_code"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:textColor="#EEE"/>
+            style="@style/textViewTopMargin"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/pet_zip_code"
@@ -186,15 +165,12 @@
             android:layout_height="wrap_content"
             android:text="@string/pet_comments"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:textColor="#EEE"/>
+            style="@style/textViewTopMargin"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/trezantos"
             android:background="@drawable/edittext_bg"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             android:hint="@string/pet_comments"
             android:id="@+id/etComments"
@@ -205,9 +181,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg"
             android:text="@string/pet_register"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
+            style="@style/button"
             android:id="@+id/btResgister"
             android:textAllCaps="false"
             android:textColor="@color/colorAccent"/>

@@ -44,4 +44,14 @@
     <string name="pet_gender">Gender</string>
     <string name="pet_female">Female</string>
     <string name="pet_male">Male</string>
+    <string name="pet_register_sucess">Pet successfully registred</string>
+    <string name="message_error">Sorry, something has happened</string>
+    <string name="pet_update_sucess">Pet successfully registred</string>
+    <string name="file_select">Select photo</string>
+    <string name="not_owner_pet">You are not the owner of this pet</string>
+    <string name="pet_help_find">Help us find the pet</string>
+    <string name="pet_message">This pet is lost, help us find it</string>
+    <string name="share">Share</string>
+    <string name="message_permission">Required permission to make calls</string>
+    <string name="permission_title">Permissao Requerida</string>
 </resources>

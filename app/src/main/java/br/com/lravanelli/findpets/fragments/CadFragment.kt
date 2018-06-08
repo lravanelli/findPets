@@ -18,15 +18,12 @@ import br.com.lravanelli.findpets.util.ImageUtils
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
-import android.util.Log
 import android.widget.*
-import br.com.lravanelli.findpets.MenuActivity
 import br.com.lravanelli.findpets.controller.PetService
 import br.com.lravanelli.findpets.database.UserDatabase
 import br.com.lravanelli.findpets.model.Pet
 import br.com.lravanelli.findpets.model.UserPers
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.fragment_cad.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -123,7 +120,7 @@ class CadFragment : Fragment() {
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_PICK
-        startActivityForResult(Intent.createChooser(intent, "Select File"), 123)
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.file_select)), 123)
 
     }
 
@@ -157,8 +154,8 @@ class CadFragment : Fragment() {
 
                 var gender: String = ""
                 when (rgGender.checkedRadioButtonId) {
-                    0 -> gender = "F"
-                    1 -> gender = "M"
+                    rbFemale.id -> gender = "F"
+                    rbMale.id -> gender = "M"
                 }
 
 
@@ -170,19 +167,23 @@ class CadFragment : Fragment() {
                     override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
                         val userResponse = response.body()?.copy()
 
-                        if (userResponse?.id != 0) {
+                        if (userResponse != null) {
+                            if (userResponse?.id > 0) {
 
-                            Toast.makeText(context, "pet cadastrado com sucesso", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, getString(R.string.pet_register_sucess), Toast.LENGTH_LONG).show()
 
-                            val fragmentTransaction = fragmentManager.beginTransaction()
-                            fragmentTransaction.replace(R.id.content_main, PetsFragment())
-                            fragmentTransaction.commit()
+                                val fragmentTransaction = fragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.content_main, PetsFragment())
+                                fragmentTransaction.commit()
 
+                            }
+                        } else {
+                            Toast.makeText(context, getString(R.string.message_error), Toast.LENGTH_LONG).show()
                         }
                     }
 
                     override fun onFailure(call: Call<Pet>?, t: Throwable?) {
-                        Log.d("ERRO", t?.message)
+                        Toast.makeText(context, getString(R.string.message_error), Toast.LENGTH_LONG).show()
 
                     }
                 })
@@ -195,8 +196,8 @@ class CadFragment : Fragment() {
 
                 var gender: String = ""
                 when (rgGender.checkedRadioButtonId) {
-                    0 -> gender = "F"
-                    1 -> gender = "M"
+                    rbFemale.id -> gender = "F"
+                    rbMale.id -> gender = "M"
                 }
 
                 val pet: Pet = Pet(pet!!.id, etName.text.toString(), etGenus.text.toString(), etBreed.text.toString(), etPhone.text.toString(), etZip.text.toString(), etComments.text.toString(), idUser, imagemBase64, "", gender)
@@ -206,19 +207,26 @@ class CadFragment : Fragment() {
                     override fun onResponse(call: Call<Pet>, response: Response<Pet>) {
                         val userResponse = response.body()?.copy()
 
-                        if (userResponse?.id != -1) {
+                        if (userResponse != null) {
+                            if (userResponse?.id != -1) {
 
-                            Toast.makeText(context, "pet atualizado com sucesso", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, getString(R.string.pet_update_sucess), Toast.LENGTH_LONG).show()
 
-                            val fragmentTransaction = fragmentManager.beginTransaction()
-                            fragmentTransaction.replace(R.id.content_main, PetsFragment())
-                            fragmentTransaction.commit()
+                                val fragmentTransaction = fragmentManager.beginTransaction()
+                                fragmentTransaction.replace(R.id.content_main, PetsFragment())
+                                fragmentTransaction.commit()
 
+                            } else {
+                                Toast.makeText(context, getString(R.string.message_error), Toast.LENGTH_LONG).show()
+                            }
+
+                        } else {
+                            Toast.makeText(context, getString(R.string.message_error), Toast.LENGTH_LONG).show()
                         }
                     }
 
                     override fun onFailure(call: Call<Pet>?, t: Throwable?) {
-                        Log.d("ERRO", pet.nome)
+                        Toast.makeText(context, getString(R.string.message_error), Toast.LENGTH_LONG).show()
 
                     }
                 })

@@ -3,4 +3,9 @@
     <color name="colorPrimary">#4182d7</color>
     <color name="colorPrimaryDark">#3171c4</color>
     <color name="colorAccent">#ffffff</color>
+    <color name="textview_color">#EEE</color>
+    <color name="colorHint">#CCC</color>
+    <color name="buttonTint">#B1BCBE</color>
+    <color name="color_textEspecie">#AAA</color>
+    <color name="bg_navigation">#eab105</color>
 </resources>

@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp"
+        android:padding="@dimen/oito"
         android:background="@drawable/theme_bg">
 
         <ImageView
@@ -21,25 +21,25 @@
             android:layout_toRightOf="@id/ivFoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="4dp"
+            android:paddingLeft="@dimen/quatro"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textSize="@dimen/text_vintedois"
                 android:textStyle="bold|italic"
-                style="@style/editText"
+                style="@style/texItem"
                 android:id="@+id/tvNome"
                 tools:text="Nome"
                 android:paddingTop="@dimen/padding_top_item"/>
 
             <TextView
-                android:textColor="#AAA"
+                android:textColor="@color/color_textEspecie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Especie"
                 android:id="@+id/tvEspecie"
-                style="@style/editText"/>
+                style="@style/texItem"/>
 
             <TextView
                 android:ellipsize="end"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 tools:text="Raça"
                 android:id="@+id/tvRaca"
-                style="@style/editText"/>
+                style="@style/texItem"/>
         </LinearLayout>
         <LinearLayout
             android:layout_alignParentRight="true"
@@ -73,7 +73,7 @@
                 android:layout_width="@dimen/dimen_icon_del"
                 android:layout_height="@dimen/dimen_icon_del"
                 android:id="@+id/ivEdit"
-                android:padding="8dp"/>
+                android:padding="@dimen/oito"/>
         </LinearLayout>
     </RelativeLayout>
 

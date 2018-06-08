@@ -49,30 +49,34 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<User>, response: Response<User>) {
                     val userResponse = response.body()?.copy()
-                    if(userResponse?.id == -1) {
-                        Toast.makeText(applicationContext, R.string.user_exist, Toast.LENGTH_LONG).show()
-                    } else if(userResponse?.id != 0) {
+                    if(userResponse != null ) {
+                        if (userResponse?.id == -1) {
+                            Toast.makeText(applicationContext, R.string.user_exist, Toast.LENGTH_LONG).show()
+                        } else if (userResponse?.id != 0) {
 
-                        val userP: UserPers = UserPers(userResponse!!.id , etEmail.text.toString(), cbRemember.isChecked, refreshedToken ?: "")
+                            val userP: UserPers = UserPers(userResponse!!.id, etEmail.text.toString(), cbRemember.isChecked, refreshedToken ?: "")
 
-                        val dao = UserDatabase.getDatabase(applicationContext)
+                            val dao = UserDatabase.getDatabase(applicationContext)
 
-                        DeleteAsyncTask(dao!!).execute()
+                            DeleteAsyncTask(dao!!).execute()
 
-                        InsertAsyncTask(dao!!).execute(userP)
+                            InsertAsyncTask(dao!!).execute(userP)
 
-                        Toast.makeText(applicationContext, R.string.user_registred, Toast.LENGTH_LONG).show()
+                            Toast.makeText(applicationContext, R.string.user_registred, Toast.LENGTH_LONG).show()
 
-                        val intent = Intent(this@LoginActivity,
-                                MenuActivity::class.java)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                        startActivity(intent)
-                        this@LoginActivity.finish()
+                            val intent = Intent(this@LoginActivity,
+                                    MenuActivity::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
+                            this@LoginActivity.finish()
 
+                        }
+                    } else {
+                        Toast.makeText(applicationContext, R.string.message_error, Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<User>?, t: Throwable?) {
-                    Log.d("ERRO", t?.message)
+                    Toast.makeText(applicationContext, R.string.message_error, Toast.LENGTH_LONG).show()
 
                 }
             })
@@ -100,25 +104,29 @@ class LoginActivity : AppCompatActivity() {
 
                     Log.d("user", response.body()?.toString())
                     val userResponse = response.body()?.copy()
-                    if (userResponse?.id == -2){
-                        Toast.makeText(applicationContext, R.string.incorrect_email, Toast.LENGTH_LONG).show()
-                    } else if (userResponse?.id == -1){
-                        Toast.makeText(applicationContext, R.string.incorrect_password, Toast.LENGTH_LONG).show()
+                    if(userResponse != null) {
+                        if (userResponse?.id == -2) {
+                            Toast.makeText(applicationContext, R.string.incorrect_email, Toast.LENGTH_LONG).show()
+                        } else if (userResponse?.id == -1) {
+                            Toast.makeText(applicationContext, R.string.incorrect_password, Toast.LENGTH_LONG).show()
+                        } else {
+
+                            val userP: UserPers = UserPers(userResponse!!.id, etEmail.text.toString(), cbRemember.isChecked, refreshedToken ?: "")
+
+                            val dao = UserDatabase.getDatabase(applicationContext)
+
+                            DeleteAsyncTask(dao!!).execute()
+
+                            InsertAsyncTask(dao!!).execute(userP)
+
+                            val intent = Intent(this@LoginActivity,
+                                    MenuActivity::class.java)
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                            startActivity(intent)
+                            this@LoginActivity.finish()
+                        }
                     } else {
-
-                        val userP: UserPers = UserPers(userResponse!!.id , etEmail.text.toString(), cbRemember.isChecked, refreshedToken ?: "")
-
-                        val dao = UserDatabase.getDatabase(applicationContext)
-
-                        DeleteAsyncTask(dao!!).execute()
-
-                        InsertAsyncTask(dao!!).execute(userP)
-
-                        val intent = Intent(this@LoginActivity,
-                                MenuActivity::class.java)
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                        startActivity(intent)
-                        this@LoginActivity.finish()
+                        Toast.makeText(applicationContext, R.string.message_error, Toast.LENGTH_LONG).show()
                     }
                 }
                 override fun onFailure(call: Call<User>?, t: Throwable?) {

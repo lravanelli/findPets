@@ -4,8 +4,7 @@
     <dimen name="dimen_logo_login">150dp</dimen>
     <dimen name="padding_shapes">0dp</dimen>
     <dimen name="radius_shape">50dp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
+        <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="padding_top_item">20dp</dimen>
     <dimen name="dimen_foto_list">100dp</dimen>
@@ -14,4 +13,17 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="dimen_photo">200dp</dimen>
+
+    <dimen name="vinte">20dp</dimen>
+    <dimen name="quinze">15dp</dimen>
+    <dimen name="imageCadDimen">200dp</dimen>
+    <dimen name="cinquenta">50dp</dimen>
+    <dimen name="trezantos">300dp</dimen>
+    <dimen name="setenta">70dp</dimen>
+    <dimen name="oito">8dp</dimen>
+    <dimen name="quatro">4dp</dimen>
+    <dimen name="text_vintedois">22sp</dimen>
+    <dimen name="quarenta">40dp</dimen>
+    <dimen name="dez">10dp</dimen>
+    <dimen name="zero">0dp</dimen>
 </resources>

@@ -23,16 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="#EEE"
+            android:textColor="@color/textview_color"
             android:text="@string/e_mail" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:background="@drawable/edittext_bg"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/e_mail"
@@ -44,18 +41,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:textColor="#EEE"
+            android:textColor="@color/textview_color"
             android:text="@string/password"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="@dimen/quarenta"/>
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:inputType="textPassword"
             android:background="@drawable/edittext_bg"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginTop="@dimen/quinze"
             android:textAlignment="center"
             style="@style/editText"
             android:hint="@string/password_hint"
@@ -68,10 +62,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/remember_my_password"
-            android:textColor="#EEE"
+            android:textColor="@color/textview_color"
             android:textSize="6pt"
-            android:layout_marginTop="10dp"
-            android:buttonTint="#B1BCBE"/>
+            android:layout_marginTop="@dimen/dez"
+            android:buttonTint="@color/buttonTint"/>
 
         <Button
             android:layout_width="match_parent"
@@ -79,10 +73,8 @@
             android:background="@drawable/button_bg"
             android:text="@string/sign_in"
             android:textColor="@color/colorAccent"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:id="@+id/btSignin"/>
+            android:id="@+id/btSignin"
+            style="@style/button"/>
 
         <Button
             android:layout_width="match_parent"
@@ -90,10 +82,8 @@
             android:background="@drawable/button_bg"
             android:text="@string/sign_up"
             android:textColor="@color/colorAccent"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:id="@+id/btSignup"/>
+            android:id="@+id/btSignup"
+            style="@style/button"/>
 
 
     </LinearLayout>

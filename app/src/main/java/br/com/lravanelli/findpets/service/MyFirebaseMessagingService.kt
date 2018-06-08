@@ -14,7 +14,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         Log.d(TAG, "onMessageReceived")
 
-        // Verifica se a mensagem é do tipo notificação.
+
         if (remoteMessage.notification != null) {
             val title = remoteMessage.notification?.title
             val msg = remoteMessage.notification?.body!!
@@ -25,7 +25,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
-    // Mostra uma notificação
+
     private fun showNotification(remoteMessage: RemoteMessage) {
         // Intent para abrir a MainActivity
         val intent = Intent(this, MenuActivity::class.java)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:card_view="http://schemas.android.com/tools"
@@ -7,12 +8,15 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="br.com.lravanelli.findpets.PetActivity"
-    tools:showIn="@layout/activity_pet">
+    tools:showIn="@layout/activity_pet"
+    android:background="#eab105">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        >
 
 
         <android.support.v7.widget.CardView
@@ -25,73 +29,123 @@
             app:cardUseCompatPadding="false"
             card_view:cardCornerRadius="2dp"
             card_view:cardElevation="6dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/theme_bg"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="30dp">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="0.5">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:text="Especie"
-                            android:id="@+id/tvDetalheEspecie"/>
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tvDetailGender"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:text="Raca"
-                            android:id="@+id/tvDetalheRaca"/>
+                            android:textColor="@color/textview_color"
+                            tools:text="Especie" />
+
+                        <TextView
+                            android:id="@+id/tvDetailGenus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textview_color"
+                            tools:text="Raca" />
                     </LinearLayout>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="0.5">
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:text="Especie"
-                            android:id="@+id/tvdetalheBreed"/>
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/tvDetailBreed"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            tools:text="Raca"
-                            android:id="@+id/tvCEP"/>
+                            android:textColor="@color/textview_color"
+                            tools:text="Especie" />
+
+                        <TextView
+                            android:id="@+id/tvDetailPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/textview_color"
+                            tools:text="Raca" />
                     </LinearLayout>
+
                 </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDetailZipCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@color/textview_color"
+                            tools:text="Especie" />
+
+                        <TextView
+                            style="@style/texItem"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/quinze"
+                            android:text="@string/pet_comments"
+                            android:textColor="@color/textview_color" />
+
+                        <EditText
+                            android:id="@+id/etDetailComments"
+                            style="@style/editText"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="@dimen/dez"
+                            android:background="@drawable/edittext_bg"
+                            android:enabled="false"
+                            android:textStyle="bold"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:ellipsize="end"/>
+
+
+                    </LinearLayout>
 
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
 
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="100dp"
             app:cardElevation="3dp"
             app:cardPreventCornerOverlap="false"
             app:cardUseCompatPadding="false"
             card_view:cardCornerRadius="2dp"
-            card_view:cardElevation="6dp">
+            card_view:cardElevation="6dp"
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/theme_bg">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,12 +155,13 @@
                     android:text="@string/last_location"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:id="@+id/tvLastLocation"/>
+                    android:id="@+id/tvLastLocation"
+                    android:textColor="@color/textview_color"/>
 
                 <FrameLayout
                     android:id="@+id/mapaFragment"
                     android:layout_width="wrap_content"
-                    android:layout_height="320dp"
+                    android:layout_height="230dp"
                     android:layout_margin="16dp" />
 
             </LinearLayout>

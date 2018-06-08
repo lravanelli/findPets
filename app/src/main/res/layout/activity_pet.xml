@@ -24,11 +24,11 @@
             app:toolbarId="@+id/toolbar">
 
             <ImageView
-                android:scaleType="centerCrop"
+                android:id="@+id/ivBanner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/ivBanner"
-                tools:src="@mipmap/logo"/>
+                android:scaleType="centerCrop"
+                tools:src="@mipmap/logo" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

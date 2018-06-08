@@ -26,8 +26,37 @@
 
     <style name="editText">
         <item name="android:textColor">@color/colorAccent</item>
-        <item name="android:textColorHint">#CCC</item>
+        <item name="android:layout_height">@dimen/cinquenta</item>
+        <item name="android:layout_marginLeft">@dimen/cinquenta</item>
+        <item name="android:layout_marginRight">@dimen/cinquenta</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+
     </style>
 
+    <style name="texItem">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+    </style>
+
+    <style name="textViewPad">
+        <item name="android:padding">@dimen/vinte</item>
+        <item name="android:textColor">@color/textview_color</item>
+    </style>
+
+    <style name="textView">
+        <item name="android:textColor">@color/textview_color</item>
+    </style>
+
+    <style name="textViewTopMargin">
+        <item name="android:layout_marginTop">@dimen/quinze</item>
+        <item name="android:textColor">@color/textview_color</item>
+    </style>
+
+    <style name="button">
+        <item name="android:layout_marginTop">@dimen/vinte</item>
+        <item name="android:layout_marginLeft">@dimen/setenta</item>
+        <item name="android:layout_marginRight">@dimen/setenta</item>
+
+    </style>
 
 </resources>

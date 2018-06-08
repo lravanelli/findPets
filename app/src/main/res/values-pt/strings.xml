@@ -35,4 +35,14 @@
     <string name="pet_gender">Sexo</string>
     <string name="pet_female">Fêmea</string>
     <string name="pet_male">Macho</string>
+    <string name="pet_register_sucess">Pet cadastrado com sucesso</string>
+    <string name="message_error">Desculpe-nos, algo de errado aconteceu.</string>
+    <string name="pet_update_sucess">Pet atualizado com sucesso</string>
+    <string name="file_select">Selecionar foto</string>
+    <string name="not_owner_pet">Você não é o proprietário desse pet.</string>
+    <string name="pet_help_find">Ajude-nos a encontrar o pet</string>
+    <string name="pet_message">Este pet está perdido, ajude-nos a encontra-lo</string>
+    <string name="share">Compartilhar</string>
+    <string name="message_permission">Necessária a permissão para fazer ligações</string>
+    <string name="permission_title">Permission required</string>
 </resources>

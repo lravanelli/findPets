@@ -28,6 +28,16 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/version"
             style="@style/editText"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit2_bg"
+            style="@style/editText"
+            android:hint="@string/pet_name"
+            android:id="@+id/etKeyFirebase"
+            android:inputType="none"/>
+
+
     </LinearLayout>
 
 
