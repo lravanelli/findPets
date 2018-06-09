@@ -1,5 +1,6 @@
 package br.com.lravanelli.findpets
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
@@ -61,6 +62,7 @@ class SplashActivity : AppCompatActivity() {
         }, 2500)
     }
 
+    @SuppressLint("StaticFieldLeak")
     private inner class GetAsyncTask internal constructor(appDatabase: UserDatabase) : AsyncTask<Void, Void, UserPers>() {
         private val db: UserDatabase = appDatabase
 
@@ -69,5 +71,7 @@ class SplashActivity : AppCompatActivity() {
             return user
         }
     }
+
+
 
 }

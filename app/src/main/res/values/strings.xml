@@ -54,4 +54,5 @@
     <string name="share">Share</string>
     <string name="message_permission">Required permission to make calls</string>
     <string name="permission_title">Permissao Requerida</string>
+    <string name="key_firebase">Key Firebase</string>
 </resources>

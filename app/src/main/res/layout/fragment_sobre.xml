@@ -28,6 +28,13 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/version"
             style="@style/editText"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/key_firebase"
+            style="@style/editText"
+            android:paddingTop="@dimen/dez"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

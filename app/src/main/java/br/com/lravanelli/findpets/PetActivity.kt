@@ -84,7 +84,7 @@ class PetActivity : AppCompatActivity() {
             tvLastLocation.text = getString(R.string.conection_avaiable)
         }
 
-
+        checkPermission()
     }
 
     fun share() {

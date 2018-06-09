@@ -45,4 +45,5 @@
     <string name="share">Compartilhar</string>
     <string name="message_permission">Necessária a permissão para fazer ligações</string>
     <string name="permission_title">Permission required</string>
+    <string name="key_firebase">Chave Firebase</string>
 </resources>
